@@ -32,10 +32,9 @@ public class WeatherForecast {
     public void displayForecast() {
         System.out.printf("Forecast for %s:%n", this.getCity().getName());
         System.out.println("Date/Time            Temperature     Description         Wind Speed");
-        for (WeatherForecastItem l: this.list ) {
-            System.out.printf("%-25s%-12.2f%-22s%.2f%n", l.getDt_txt(), l.getMeasurements().get("temp"),
-                    l.getWeather().get(0).description, l.getWind().get("speed"));
-        }
+
+        this.list.forEach((w) -> System.out.printf("%-25s%-12.2f%-22s%.2f%n",w.getDt_txt(),
+                w.getMeasurements().get("temp"), w.getWeather().get(0).getDescription(), w.getWind().get("speed")));
         System.out.println("===================================");
     }
 
